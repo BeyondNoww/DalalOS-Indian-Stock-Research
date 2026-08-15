@@ -1,0 +1,105 @@
+name: Public repository safety
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  public-safety:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09
+
+      - name: Reject implementation files, private-repo references, and obvious credentials
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import pathlib
+          import re
+          import subprocess
+          import sys
+
+          tracked = subprocess.check_output(["git", "ls-files", "-z"]).decode().split("\0")
+          tracked = [p for p in tracked if p]
+
+          exact_allowed = {
+              "README.md",
+              "SECURITY.md",
+              "CONTRIBUTING.md",
+              "server.json",
+              "LICENSE",
+              "NOTICE",
+              ".github/CODEOWNERS",
+              ".github/pull_request_template.md",
+              ".github/workflows/public-safety.yml",
+          }
+
+          def allowed_path(path: str) -> bool:
+              if path in exact_allowed:
+                  return True
+              if path.startswith("docs/") and path.endswith(".md"):
+                  return True
+              if path.startswith("examples/") and path.endswith(".md"):
+                  return True
+              return False
+
+          failures = []
+          unexpected = [p for p in tracked if not allowed_path(p)]
+          if unexpected:
+              failures.append(
+                  "unexpected tracked files outside the docs/metadata allowlist: "
+                  + ", ".join(sorted(unexpected))
+              )
+
+          # Build sensitive private-repo identifiers from fragments so this workflow does not
+          # contain the exact strings it is looking for in public documentation.
+          private_repo_names = [
+              "indianstock" + "-data-mcp",
+              "dalal" + "-os",
+              "dalalos" + "-content-engine",
+          ]
+
+          secret_patterns = [
+              re.compile(r"\bghp_[A-Za-z0-9]{20,}\b"),
+              re.compile(r"\bgithub_pat_[A-Za-z0-9_]{20,}\b"),
+              re.compile(r"\bisk_live_[A-Za-z0-9_-]{8,}\b"),
+              re.compile(r"\bsk-(?:proj-)?[A-Za-z0-9_-]{20,}\b"),
+              re.compile(r"Authorization:\s*Bearer\s+(?!<)[A-Za-z0-9._~-]{20,}", re.I),
+          ]
+
+          scan_skip = {".github/workflows/public-safety.yml"}
+          for path in tracked:
+              if path in scan_skip:
+                  continue
+              p = pathlib.Path(path)
+              try:
+                  text = p.read_text(encoding="utf-8")
+              except (UnicodeDecodeError, OSError):
+                  failures.append(f"non-text or unreadable tracked file: {path}")
+                  continue
+
+              lowered = text.lower()
+              for private_name in private_repo_names:
+                  if private_name.lower() in lowered:
+                      failures.append(f"private repository identifier found in {path}")
+                      break
+
+              for pattern in secret_patterns:
+                  if pattern.search(text):
+                      failures.append(f"possible live credential found in {path}: {pattern.pattern}")
+                      break
+
+          if failures:
+              print("Public repository safety validation failed:", file=sys.stderr)
+              for failure in failures:
+                  print(f"- {failure}", file=sys.stderr)
+              sys.exit(1)
+
+          print(f"Validated {len(tracked)} tracked public metadata/documentation files.")
+          PY
