@@ -1,6 +1,6 @@
 # DalalOS directory listing kit
 
-Use this page when adding or updating DalalOS in an MCP directory, AI-tool catalog, developer resource list or finance-data roundup. The copy is deliberately capability-stable: it does not hard-code a tool count that can drift as the hosted service evolves.
+Use this page when adding or updating DalalOS in an MCP directory, AI-tool catalog, developer resource list or finance-data roundup. The prose is deliberately capability-stable: it does not hard-code a tool count that can drift as the hosted service evolves.
 
 ## Canonical identity
 
@@ -10,6 +10,7 @@ Use this page when adding or updating DalalOS in an MCP directory, AI-tool catal
 - **Public GitHub project:** https://github.com/BeyondNoww/DalalOS-Indian-Stock-Research
 - **Hosted MCP endpoint:** `https://mcp.dalalos.in/mcp`
 - **Official MCP Registry identity:** `io.github.aatharva16/dalalos`
+- **Machine-readable capabilities:** https://github.com/BeyondNoww/DalalOS-Indian-Stock-Research/blob/main/capabilities.json
 - **Connection guide:** https://dalalos.in/connect
 - **Tool reference:** https://dalalos.in/tools
 - **Data sources & freshness:** https://dalalos.in/docs/data-sources-and-freshness
@@ -21,6 +22,15 @@ Use this page when adding or updating DalalOS in an MCP directory, AI-tool catal
 ## Short description
 
 > DalalOS connects MCP-compatible AI clients to sourced Indian NSE/BSE research data, including end-of-day prices, financials and mechanically-computed ratios, ownership, disclosures, corporate actions, screening, indices and market context. Market-data tools are read-only; the caller's account-scoped DalalOS watchlist is the explicit add/remove write exception. DalalOS is not a broker, live tick feed or investment-advice service.
+
+## Capability counts
+
+When a directory requires an exact current tool count, read it from [`../capabilities.json`](../capabilities.json) rather than copying a number from prose:
+
+- use `preferred_tool_count` for the current non-deprecated capability count;
+- use `registered_tool_count` only when the directory explicitly wants every registered MCP name, including compatibility aliases;
+- do not count deprecated aliases as separate preferred product capabilities;
+- use the per-tool `read_only` / `destructive` flags to preserve the market-data-read versus account-watchlist-write distinction.
 
 ## Suggested tags
 
@@ -52,4 +62,4 @@ More examples: [`../examples/PROMPTS.md`](../examples/PROMPTS.md).
 
 ## Do not use stale claims
 
-Do not copy an old hard-coded tool count, claim real-time prices, describe DalalOS as a trading/execution service, or imply that it issues investment recommendations. When an external listing disagrees with this page or the maintained website, use the current public DalalOS documentation as the source of truth and update the external listing.
+Do not copy an old hard-coded tool count, claim real-time prices, describe DalalOS as a trading/execution service, or imply that it issues investment recommendations. When an external listing disagrees with this page or the maintained website, use the current public DalalOS documentation and `capabilities.json` as the public discovery references and update the external listing.
