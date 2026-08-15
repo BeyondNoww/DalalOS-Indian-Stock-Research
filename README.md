@@ -46,13 +46,13 @@ See [`docs/CONNECT.md`](docs/CONNECT.md) for public-safe setup notes and the mai
 
 ## MCP Registry identity
 
-The public registry manifest is [`server.json`](server.json) and uses the GitHub-owned server name:
+The public registry manifest is [`server.json`](server.json). DalalOS already has an official MCP Registry identity under:
 
 ```text
-io.github.BeyondNoww/dalalos
+io.github.aatharva16/dalalos
 ```
 
-Registry publication is configured through GitHub OIDC from this public repository, so the workflow does not require a stored MCP Registry credential.
+That existing identity is intentionally preserved so the hosted endpoint has one canonical Registry record. Registry metadata changes must be published using credentials authorized for that existing namespace; this public repository does not store those credentials.
 
 ## Repository purpose
 
@@ -69,7 +69,6 @@ Public files in this repository are limited to integration metadata, connection 
 - [`docs/DATA_SOURCES.md`](docs/DATA_SOURCES.md) — provenance and freshness contract.
 - [`examples/PROMPTS.md`](examples/PROMPTS.md) — example research prompts and capability-boundary examples.
 - [`SECURITY.md`](SECURITY.md) — responsible security reporting guidance.
-- [`.github/workflows/publish-mcp-registry.yml`](.github/workflows/publish-mcp-registry.yml) — secretless, manual MCP Registry publication workflow.
 
 ## Legal and privacy
 
