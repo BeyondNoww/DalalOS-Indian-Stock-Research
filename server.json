@@ -3,10 +3,7 @@
   "name": "io.github.aatharva16/dalalos",
   "title": "DalalOS",
   "description": "Indian NSE/BSE research data and mechanically-computed ratios; read-only market-data tools.",
-  "repository": {
-    "url": "https://github.com/BeyondNoww/DalalOS-Indian-Stock-Research",
-    "source": "github"
-  },
+  "websiteUrl": "https://dalalos.in",
   "version": "0.1.0",
   "remotes": [
     {
