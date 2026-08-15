@@ -77,6 +77,7 @@ Public files in this repository are limited to integration metadata, connection 
 - [`docs/CONNECT.md`](docs/CONNECT.md) — connection and authentication notes.
 - [`docs/DATA_SOURCES.md`](docs/DATA_SOURCES.md) — provenance and freshness contract.
 - [`docs/DIRECTORY_LISTING.md`](docs/DIRECTORY_LISTING.md) — canonical copy for MCP directories, AI-tool catalogs and curated resource lists.
+- [`docs/OPENAI_PLUGIN_SUBMISSION.md`](docs/OPENAI_PLUGIN_SUBMISSION.md) — public-safe OpenAI Plugin listing/review preparation pack, including starter prompts and positive/negative capability tests.
 - [`examples/PROMPTS.md`](examples/PROMPTS.md) — example research prompts and capability-boundary examples.
 - [`CONTRIBUTING.md`](CONTRIBUTING.md) — public contribution and implementation-leak guardrails.
 - [`SECURITY.md`](SECURITY.md) — responsible security reporting guidance.
