@@ -44,6 +44,14 @@ OAuth is the preferred authentication path for clients that support it. API-key 
 
 See [`docs/CONNECT.md`](docs/CONNECT.md) for public-safe setup notes and the maintained website guides for client-specific instructions.
 
+## Public capability contract
+
+[`capabilities.json`](capabilities.json) is the deliberately minimal machine-readable discovery contract for the hosted MCP surface. It contains only public MCP tool names plus read/write, destructive and deprecation lifecycle facts, along with derived registered/preferred/write counts.
+
+It intentionally does **not** publish tool implementation modules, input-schema hashes, REST mappings, storage/cache details, source-adapter logic, refresh mechanics, deployment information, credentials, or other backend internals.
+
+Deprecated compatibility aliases remain in the registered-name list but are excluded from `preferred_tool_count`, so directories and product surfaces can avoid inflating capability counts with old aliases.
+
 ## MCP Registry identity
 
 The public registry manifest is [`server.json`](server.json). DalalOS already has an official MCP Registry identity under:
@@ -65,6 +73,7 @@ Public files in this repository are limited to integration metadata, connection 
 ## Public metadata
 
 - [`server.json`](server.json) — MCP Registry metadata for the hosted server.
+- [`capabilities.json`](capabilities.json) — sanitized machine-readable capability names/read-write/deprecation contract.
 - [`docs/CONNECT.md`](docs/CONNECT.md) — connection and authentication notes.
 - [`docs/DATA_SOURCES.md`](docs/DATA_SOURCES.md) — provenance and freshness contract.
 - [`docs/DIRECTORY_LISTING.md`](docs/DIRECTORY_LISTING.md) — canonical copy for MCP directories, AI-tool catalogs and curated resource lists.
