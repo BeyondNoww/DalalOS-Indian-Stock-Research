@@ -1,0 +1,17 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.aatharva16/dalalos",
+  "title": "DalalOS",
+  "description": "Indian NSE/BSE research data and mechanically-computed ratios for AI assistants and agents.",
+  "repository": {
+    "url": "https://github.com/BeyondNoww/DalalOS-Indian-Stock-Research",
+    "source": "github"
+  },
+  "version": "0.1.0",
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://mcp.dalalos.in/mcp"
+    }
+  ]
+}
