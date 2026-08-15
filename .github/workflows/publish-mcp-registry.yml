@@ -1,6 +1,10 @@
 name: Publish MCP Registry
 
 on:
+  push:
+    branches: [main]
+    paths:
+      - server.json
   workflow_dispatch:
 
 permissions:
