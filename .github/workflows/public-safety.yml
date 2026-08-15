@@ -20,6 +20,7 @@ jobs:
         run: |
           set -euo pipefail
           python3 - <<'PY'
+          import json
           import pathlib
           import re
           import subprocess
@@ -33,6 +34,7 @@ jobs:
               "SECURITY.md",
               "CONTRIBUTING.md",
               "server.json",
+              "capabilities.json",
               "LICENSE",
               "NOTICE",
               ".github/CODEOWNERS",
@@ -94,6 +96,60 @@ jobs:
                   if pattern.search(text):
                       failures.append(f"possible live credential found in {path}: {pattern.pattern}")
                       break
+
+          capability_path = pathlib.Path("capabilities.json")
+          if capability_path.exists():
+              try:
+                  capability = json.loads(capability_path.read_text(encoding="utf-8"))
+              except (json.JSONDecodeError, OSError) as exc:
+                  failures.append(f"capabilities.json is unreadable JSON: {exc}")
+              else:
+                  root_keys = {
+                      "deprecated_tool_count",
+                      "preferred_tool_count",
+                      "registered_tool_count",
+                      "schema_version",
+                      "service",
+                      "tools",
+                      "write_tool_count",
+                  }
+                  tool_keys = {"deprecated", "destructive", "name", "read_only", "successor"}
+                  if set(capability) != root_keys:
+                      failures.append("capabilities.json root keys differ from the public allowlist")
+                  tools = capability.get("tools")
+                  if not isinstance(tools, list):
+                      failures.append("capabilities.json tools must be a list")
+                      tools = []
+                  if any(not isinstance(tool, dict) or set(tool) != tool_keys for tool in tools):
+                      failures.append("capabilities.json tool keys differ from the public allowlist")
+
+                  names = [tool.get("name") for tool in tools if isinstance(tool, dict)]
+                  if names != sorted(names) or len(names) != len(set(names)):
+                      failures.append("capabilities.json tool names must be unique and sorted")
+
+                  deprecated = [tool for tool in tools if tool.get("deprecated") is True]
+                  writes = [tool for tool in tools if tool.get("read_only") is False]
+                  preferred = [tool for tool in tools if tool.get("deprecated") is False]
+                  if capability.get("registered_tool_count") != len(tools):
+                      failures.append("capabilities.json registered_tool_count is inconsistent")
+                  if capability.get("preferred_tool_count") != len(preferred):
+                      failures.append("capabilities.json preferred_tool_count is inconsistent")
+                  if capability.get("deprecated_tool_count") != len(deprecated):
+                      failures.append("capabilities.json deprecated_tool_count is inconsistent")
+                  if capability.get("write_tool_count") != len(writes):
+                      failures.append("capabilities.json write_tool_count is inconsistent")
+
+                  write_names = {tool.get("name") for tool in writes}
+                  if write_names != {"add_to_watchlist", "remove_from_watchlist"}:
+                      failures.append("capabilities.json exposes an unexpected write capability")
+                  deprecated_map = {tool.get("name"): tool.get("successor") for tool in deprecated}
+                  if deprecated_map != {
+                      "get_fii_activity": "get_stock_fii_flow",
+                      "get_fii_dii_flow": "get_market_fii_dii_flow",
+                  }:
+                      failures.append("capabilities.json deprecated aliases differ from the public contract")
+                  if capability.get("schema_version") != 1 or capability.get("service") != "DalalOS":
+                      failures.append("capabilities.json identity/schema is unexpected")
 
           if failures:
               print("Public repository safety validation failed:", file=sys.stderr)
