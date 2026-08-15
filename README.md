@@ -44,6 +44,16 @@ OAuth is the preferred authentication path for clients that support it. API-key 
 
 See [`docs/CONNECT.md`](docs/CONNECT.md) for public-safe setup notes and the maintained website guides for client-specific instructions.
 
+## MCP Registry identity
+
+The public registry manifest is [`server.json`](server.json) and uses the GitHub-owned server name:
+
+```text
+io.github.BeyondNoww/dalalos
+```
+
+Registry publication is configured through GitHub OIDC from this public repository, so the workflow does not require a stored MCP Registry credential.
+
 ## Repository purpose
 
 This repository is the **public project, integration and discovery surface** for DalalOS. It exists so users, MCP registries, AI-tool directories and open-source ecosystem lists have a stable public GitHub reference for the hosted service.
@@ -59,6 +69,7 @@ Public files in this repository are limited to integration metadata, connection 
 - [`docs/DATA_SOURCES.md`](docs/DATA_SOURCES.md) — provenance and freshness contract.
 - [`examples/PROMPTS.md`](examples/PROMPTS.md) — example research prompts and capability-boundary examples.
 - [`SECURITY.md`](SECURITY.md) — responsible security reporting guidance.
+- [`.github/workflows/publish-mcp-registry.yml`](.github/workflows/publish-mcp-registry.yml) — secretless, manual MCP Registry publication workflow.
 
 ## Legal and privacy
 
