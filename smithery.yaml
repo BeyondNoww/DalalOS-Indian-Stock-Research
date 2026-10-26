@@ -1,0 +1,12 @@
+# Smithery metadata for DalalOS, an externally hosted (remote) MCP server.
+#
+# Nothing is built or run from this repository: the server runs at the URL below over streamable
+# HTTP and signs users in with OAuth in the browser, so there is no secret or API key to configure.
+# Smithery lists URL-based servers from the endpoint itself (smithery.ai/new, or
+# `smithery mcp publish "https://mcp.dalalos.in/mcp" -n <namespace>/<name>`).
+startCommand:
+  type: http
+  configSchema:
+    type: object
+    properties: {}
+  exampleConfig: {}
