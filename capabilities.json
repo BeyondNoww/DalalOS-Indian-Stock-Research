@@ -1,12 +1,12 @@
 {
   "deprecated_tool_count": 2,
-  "preferred_tool_count": 56,
-  "registered_tool_count": 58,
+  "preferred_tool_count": 59,
+  "registered_tool_count": 61,
   "schema_version": 1,
   "service": "DalalOS",
   "tools": [
     {"deprecated": false, "destructive": false, "name": "add_to_watchlist", "read_only": false, "successor": null},
-    {"deprecated": false, "destructive": false, "name": "get_announcement_bucket", "read_only": true, "successor": null},
+    {"deprecated": false, "destructive": false, "name": "get_announcement_bucket", "read_only": false, "successor": null},
     {"deprecated": false, "destructive": false, "name": "get_batch_quotes", "read_only": true, "successor": null},
     {"deprecated": false, "destructive": false, "name": "get_brsr", "read_only": true, "successor": null},
     {"deprecated": false, "destructive": false, "name": "get_bulk_block_deals", "read_only": true, "successor": null},
@@ -23,7 +23,8 @@
     {"deprecated": false, "destructive": false, "name": "get_event_context", "read_only": true, "successor": null},
     {"deprecated": true, "destructive": false, "name": "get_fii_activity", "read_only": true, "successor": "get_stock_fii_flow"},
     {"deprecated": true, "destructive": false, "name": "get_fii_dii_flow", "read_only": true, "successor": "get_market_fii_dii_flow"},
-    {"deprecated": false, "destructive": false, "name": "get_filing_extract", "read_only": true, "successor": null},
+    {"deprecated": false, "destructive": false, "name": "get_filing_extract", "read_only": false, "successor": null},
+    {"deprecated": false, "destructive": false, "name": "get_filing_extracts", "read_only": false, "successor": null},
     {"deprecated": false, "destructive": false, "name": "get_financial_trends", "read_only": true, "successor": null},
     {"deprecated": false, "destructive": false, "name": "get_financials", "read_only": true, "successor": null},
     {"deprecated": false, "destructive": false, "name": "get_fno_ban_list", "read_only": true, "successor": null},
@@ -43,9 +44,10 @@
     {"deprecated": false, "destructive": false, "name": "get_relevant_peers", "read_only": true, "successor": null},
     {"deprecated": false, "destructive": false, "name": "get_returns", "read_only": true, "successor": null},
     {"deprecated": false, "destructive": false, "name": "get_sector_fii_flow", "read_only": true, "successor": null},
+    {"deprecated": false, "destructive": false, "name": "get_sector_fpi_investment", "read_only": true, "successor": null},
     {"deprecated": false, "destructive": false, "name": "get_sector_overview", "read_only": true, "successor": null},
     {"deprecated": false, "destructive": false, "name": "get_shareholding", "read_only": true, "successor": null},
-    {"deprecated": false, "destructive": false, "name": "get_stock_events", "read_only": true, "successor": null},
+    {"deprecated": false, "destructive": false, "name": "get_stock_events", "read_only": false, "successor": null},
     {"deprecated": false, "destructive": false, "name": "get_stock_fii_flow", "read_only": true, "successor": null},
     {"deprecated": false, "destructive": false, "name": "get_stock_quote", "read_only": true, "successor": null},
     {"deprecated": false, "destructive": false, "name": "get_technical_indicators", "read_only": true, "successor": null},
@@ -60,9 +62,10 @@
     {"deprecated": false, "destructive": false, "name": "list_preset_screens", "read_only": true, "successor": null},
     {"deprecated": false, "destructive": true, "name": "remove_from_watchlist", "read_only": false, "successor": null},
     {"deprecated": false, "destructive": false, "name": "run_preset_screen", "read_only": true, "successor": null},
+    {"deprecated": false, "destructive": false, "name": "screen_by_query", "read_only": true, "successor": null},
     {"deprecated": false, "destructive": false, "name": "screen_stocks", "read_only": true, "successor": null},
     {"deprecated": false, "destructive": false, "name": "search_company_disclosures", "read_only": true, "successor": null},
     {"deprecated": false, "destructive": false, "name": "search_stocks", "read_only": true, "successor": null}
   ],
-  "write_tool_count": 2
+  "write_tool_count": 6
 }

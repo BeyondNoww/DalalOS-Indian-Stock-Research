@@ -43,9 +43,11 @@ Avoid hard-coded capability counts unless they are generated from a public sourc
 
 ## Registry metadata
 
-`server.json` describes the hosted MCP service. Its `repository` field, if ever used, must refer to actual server source code as defined by the MCP Registry schema. This repository is intentionally not the backend source repository, so the public manifest currently uses `websiteUrl` instead.
+`server.json` describes the hosted MCP service and is published to the official MCP Registry under the domain-verified name `in.dalalos/mcp` (reverse-DNS of dalalos.in, proven with a `/.well-known/mcp-registry-auth` file on https://dalalos.in).
 
-The existing Registry identity is `io.github.aatharva16/dalalos`. Do not create a second Registry identity for the same hosted endpoint without an explicit migration plan.
+Its `repository` field points at this public project and discovery repository. This repository is not the backend source repository, so do not describe it as server source code. The hosted endpoint is the only thing the manifest installs.
+
+The older identity `io.github.aatharva16/dalalos` (v0.1.0) was published before the domain-verified name existed. Do not create further Registry identities for the same hosted endpoint without an explicit migration plan.
 
 ## Pull request checklist
 

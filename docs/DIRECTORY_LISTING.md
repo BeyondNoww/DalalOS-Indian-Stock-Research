@@ -9,7 +9,7 @@ Use this page when adding or updating DalalOS in an MCP directory, AI-tool catal
 - **Website:** https://dalalos.in
 - **Public GitHub project:** https://github.com/BeyondNoww/DalalOS-Indian-Stock-Research
 - **Hosted MCP endpoint:** `https://mcp.dalalos.in/mcp`
-- **Official MCP Registry identity:** `io.github.aatharva16/dalalos`
+- **Official MCP Registry name:** `in.dalalos/mcp` (domain-verified; supersedes the older `io.github.aatharva16/dalalos` entry)
 - **Machine-readable capabilities:** https://github.com/BeyondNoww/DalalOS-Indian-Stock-Research/blob/main/capabilities.json
 - **Connection guide:** https://dalalos.in/connect
 - **Tool reference:** https://dalalos.in/tools
@@ -17,11 +17,11 @@ Use this page when adding or updating DalalOS in an MCP directory, AI-tool catal
 
 ## One-line description
 
-> Hosted MCP data layer for source-backed Indian NSE/BSE stock research with AI assistants and agents.
+> Hosted MCP server for filing-grounded Indian NSE/BSE stock research: sourced facts and mechanically-computed ratios, with source and freshness on every response.
 
 ## Short description
 
-> DalalOS connects MCP-compatible AI clients to sourced Indian NSE/BSE research data, including end-of-day prices, financials and mechanically-computed ratios, ownership, disclosures, corporate actions, screening, indices and market context. Market-data tools are read-only; the caller's account-scoped DalalOS watchlist is the explicit add/remove write exception. DalalOS is not a broker, live tick feed or investment-advice service.
+> DalalOS connects MCP-compatible AI clients to sourced Indian NSE/BSE research data, including end-of-day prices, financials and mechanically-computed ratios, ownership, disclosures, corporate actions, screening, indices and market context. Market-data tools read a maintained cache; filing tools can queue on-demand processing, and the caller's account-scoped DalalOS watchlist is the only account write. DalalOS is not a broker, live tick feed or investment-advice service.
 
 ## Capability counts
 
@@ -34,11 +34,15 @@ When a directory requires an exact current tool count, read it from [`../capabil
 
 ## Suggested tags
 
-`mcp`, `model-context-protocol`, `finance`, `financial-data`, `stock-market`, `india`, `nse`, `bse`, `market-data`, `ai-agents`, `stock-research`, `streamable-http`
+`mcp`, `model-context-protocol`, `finance`, `financial-data`, `stock-market`, `india`, `nse`, `bse`, `market-data`, `ai-agents`, `stock-research`, `streamable-http`, `filings`, `fii-dii`, `remote-mcp`
+
+## Pricing
+
+Free to start with no card; paid plans are on https://dalalos.in/pricing. Quote the live pricing page rather than a number copied here.
 
 ## Authentication
 
-- Preferred where supported: OAuth.
+- OAuth (browser sign-in) for Claude, ChatGPT, Cursor, VS Code and other clients that support it.
 - Fallback for compatible clients that require it: DalalOS API key via Bearer authentication.
 - Never include a real API key or credential in a public directory listing.
 

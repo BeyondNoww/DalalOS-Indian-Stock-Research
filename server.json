@@ -1,10 +1,14 @@
 {
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
-  "name": "io.github.aatharva16/dalalos",
-  "title": "DalalOS",
-  "description": "Indian NSE/BSE research data and mechanically-computed ratios; read-only market-data tools.",
+  "name": "in.dalalos/mcp",
+  "title": "DalalOS: Indian Stock Market Research (NSE/BSE)",
+  "description": "Filing-grounded Indian stock research (NSE/BSE): financials, ratios, screens. Sourced and dated.",
   "websiteUrl": "https://dalalos.in",
-  "version": "0.1.0",
+  "repository": {
+    "url": "https://github.com/BeyondNoww/DalalOS-Indian-Stock-Research",
+    "source": "github"
+  },
+  "version": "1.0.0",
   "remotes": [
     {
       "type": "streamable-http",
