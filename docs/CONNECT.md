@@ -17,11 +17,12 @@ For clients that require an explicit Bearer credential, DalalOS also supports AP
 Client UIs and MCP configuration formats change over time, so the maintained DalalOS website is the source of truth for exact setup steps:
 
 - General connection guide: https://dalalos.in/connect
-- ChatGPT and compatible clients: https://dalalos.in/docs/chatgpt
+- ChatGPT (published plugin, easiest): https://chatgpt.com/plugins/plugin_asdk_app_6aded6de90f081918717da5227322e16
+- ChatGPT manual setup and compatible clients: https://dalalos.in/docs/chatgpt
 - Claude: https://dalalos.in/docs/claude
 - REST API: https://dalalos.in/docs/rest-api
 
-For ChatGPT, OpenAI currently supports custom MCP-powered apps through its Apps/Plugins experience on eligible plans and workspaces. Follow the maintained DalalOS guide above rather than relying on an old screenshot or copied UI path.
+For ChatGPT, install the published DalalOS plugin from the link above (published for ChatGPT users in India). If it is not available to you, OpenAI also supports custom MCP-powered apps through its Apps/Plugins experience on eligible plans and workspaces; follow the maintained DalalOS guide above rather than relying on an old screenshot or copied UI path.
 
 ## Illustrative MCP configuration
 

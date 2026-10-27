@@ -139,6 +139,6 @@ Immediately before an authenticated submission, verify the current OpenAI portal
 Once a public OpenAI Plugin listing is approved:
 
 1. Record its canonical public reference in the private distribution tracker.
-2. Link to it from the public DalalOS project where appropriate.
+2. Link to it from the public DalalOS project where appropriate. Published: https://chatgpt.com/plugins/plugin_asdk_app_6aded6de90f081918717da5227322e16 (verified 2026-10-27, version 1.0.1; published for ChatGPT users in India).
 3. Re-run the stable direct/indirect/negative discoverability prompt benchmark in the actual OpenAI host.
 4. Change MCP metadata only for measured routing failures, then re-run the same benchmark instead of tuning descriptions by intuition.

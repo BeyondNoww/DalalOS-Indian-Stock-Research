@@ -31,7 +31,9 @@ Then run `/mcp` inside Claude Code to finish the browser sign-in.
 
 ### ChatGPT
 
-ChatGPT does not use a JSON config file for this. In ChatGPT open **Plugins → Create Plugin**, choose **Server URL**, enter `https://mcp.dalalos.in/mcp`, select **OAuth**, create the plugin and complete the DalalOS sign-in window. Then start a new chat and select the plugin.
+The easiest way is the published plugin: [open DalalOS in ChatGPT](https://chatgpt.com/plugins/plugin_asdk_app_6aded6de90f081918717da5227322e16), select **Install plugin**, and sign in to DalalOS when prompted (Google, or a code we email you). It is published for ChatGPT users in India.
+
+If the plugin is not available to you, add the server manually. ChatGPT does not use a JSON config file for this: in ChatGPT open **Plugins → Create Plugin**, choose **Server URL**, enter `https://mcp.dalalos.in/mcp`, select **OAuth**, create the plugin and complete the DalalOS sign-in window. Then start a new chat and select the plugin.
 
 ### Cursor
 
