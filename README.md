@@ -182,3 +182,5 @@ This is the public project, integration and discovery surface for DalalOS. It ho
 | [`CONTRIBUTING.md`](CONTRIBUTING.md), [`SECURITY.md`](SECURITY.md) | Contribution guardrails and security reporting |
 
 Privacy: https://dalalos.in/privacy. Terms: https://dalalos.in/terms. Questions: https://dalalos.in/contact.
+
+The documentation and metadata in this repository are MIT licensed ([`LICENSE`](LICENSE)). The hosted service and the data it returns are governed by the DalalOS terms, not by that licence; see [`NOTICE`](NOTICE).
