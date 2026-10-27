@@ -1,6 +1,6 @@
-# DalalOS: Indian stock research MCP server (NSE/BSE)
+# Indian stock market (NSE/BSE) MCP server
 
-**DalalOS is a hosted, remote MCP server that gives Claude, ChatGPT, Cursor and other AI clients sourced, filing-grounded Indian stock-market data, with the source and freshness date on every response.** It returns reported facts and mechanically-computed ratios, never a buy/sell call.
+**DalalOS is a hosted Indian stock market (NSE/BSE) MCP server.** It gives Claude, ChatGPT, Cursor and other MCP clients 59 tools for company and market data: quotes, financials and ratios, shareholding, corporate filings (facts with the source page and verbatim quote), order book and other operating metrics for the companies that disclose and are indexed, screens, FII/DII flows, F&O positioning and macro series. Each response carries its source and a freshness date. It returns reported facts and mechanically-computed ratios, never a buy/sell call.
 
 - MCP endpoint (streamable HTTP): `https://mcp.dalalos.in/mcp`
 - Website: https://dalalos.in
@@ -117,7 +117,7 @@ Prompt pattern for when recency matters: *"Name the DalalOS tools used, show the
 
 ## Tools
 
-DalalOS exposes **59 current MCP tools**. Compatibility aliases and a `ping` helper are also visible on the server; the maintained reference is https://dalalos.in/tools and the machine-readable list is [`capabilities.json`](capabilities.json).
+DalalOS exposes **59 current MCP tools**. The live `tools/list` returned 61 entries on 27 October 2026: those 59, a `ping` helper and one deprecated alias (`get_fii_activity`); the maintained reference is https://dalalos.in/tools and the machine-readable list is [`capabilities.json`](capabilities.json).
 
 | Group | Count | Tools |
 | --- | ---: | --- |
