@@ -155,10 +155,7 @@ jobs:
                   if write_names != expected_writes:
                       failures.append("capabilities.json exposes an unexpected write capability")
                   deprecated_map = {tool.get("name"): tool.get("successor") for tool in deprecated}
-                  if deprecated_map != {
-                      "get_fii_activity": "get_stock_fii_flow",
-                      "get_fii_dii_flow": "get_market_fii_dii_flow",
-                  }:
+                  if deprecated_map != {"get_fii_activity": "get_stock_fii_flow"}:
                       failures.append("capabilities.json deprecated aliases differ from the public contract")
                   if capability.get("schema_version") != 1 or capability.get("service") != "DalalOS":
                       failures.append("capabilities.json identity/schema is unexpected")
