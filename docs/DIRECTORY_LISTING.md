@@ -28,7 +28,7 @@ Use this page when adding or updating DalalOS in an MCP directory, AI-tool catal
 When a directory requires an exact current tool count, read it from [`../capabilities.json`](../capabilities.json) rather than copying a number from prose:
 
 - use `preferred_tool_count` for the current non-deprecated capability count;
-- use `registered_tool_count` only when the directory explicitly wants every registered MCP name, including compatibility aliases;
+- use `registered_tool_count` only when the directory explicitly wants every registered MCP name, including compatibility aliases (it excludes the `ping` health check, so a directory that scans the live `tools/list` may show one more);
 - do not count deprecated aliases as separate preferred product capabilities;
 - use the per-tool `read_only` / `destructive` flags to preserve the market-data-read versus account-watchlist-write distinction.
 

@@ -1,7 +1,7 @@
 {
-  "deprecated_tool_count": 2,
+  "deprecated_tool_count": 1,
   "preferred_tool_count": 59,
-  "registered_tool_count": 61,
+  "registered_tool_count": 60,
   "schema_version": 1,
   "service": "DalalOS",
   "tools": [
@@ -22,7 +22,6 @@
     {"deprecated": false, "destructive": false, "name": "get_dividends", "read_only": true, "successor": null},
     {"deprecated": false, "destructive": false, "name": "get_event_context", "read_only": true, "successor": null},
     {"deprecated": true, "destructive": false, "name": "get_fii_activity", "read_only": true, "successor": "get_stock_fii_flow"},
-    {"deprecated": true, "destructive": false, "name": "get_fii_dii_flow", "read_only": true, "successor": "get_market_fii_dii_flow"},
     {"deprecated": false, "destructive": false, "name": "get_filing_extract", "read_only": false, "successor": null},
     {"deprecated": false, "destructive": false, "name": "get_filing_extracts", "read_only": false, "successor": null},
     {"deprecated": false, "destructive": false, "name": "get_financial_trends", "read_only": true, "successor": null},
