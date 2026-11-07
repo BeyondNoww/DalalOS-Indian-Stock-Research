@@ -1,0 +1,11 @@
+{
+  "name": "dalalos",
+  "version": "1.0.0",
+  "description": "Source-backed Indian NSE/BSE stock research data: financials, mechanically-computed ratios, shareholding, filings, screens, FII/DII flows and macro context. Sign in once with OAuth.",
+  "mcpServers": {
+    "dalalos": {
+      "httpUrl": "https://mcp.dalalos.in/mcp"
+    }
+  },
+  "contextFileName": "GEMINI.md"
+}

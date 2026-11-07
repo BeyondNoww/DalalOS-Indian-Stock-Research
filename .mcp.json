@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "dalalos": {
+      "type": "http",
+      "url": "https://mcp.dalalos.in/mcp"
+    }
+  }
+}

@@ -32,6 +32,13 @@ claude mcp add --transport http dalalos https://mcp.dalalos.in/mcp
 
 Then run `/mcp` inside Claude Code to finish the browser sign-in.
 
+Or install it as a plugin:
+
+```bash
+/plugin marketplace add BeyondNoww/DalalOS-Indian-Stock-Research
+/plugin install dalalos@dalalos
+```
+
 ### ChatGPT
 
 The easiest way is the published plugin: [open DalalOS in ChatGPT](https://chatgpt.com/plugins/plugin_asdk_app_6aded6de90f081918717da5227322e16), select **Install plugin**, and sign in to DalalOS when prompted (Google, or a code we email you). It is published for ChatGPT users in India.
@@ -66,6 +73,14 @@ Add to `.vscode/mcp.json`:
   }
 }
 ```
+
+### Gemini CLI
+
+```bash
+gemini extensions install https://github.com/BeyondNoww/DalalOS-Indian-Stock-Research
+```
+
+Complete the DalalOS sign-in when Gemini CLI prompts for it.
 
 ### Codex
 
