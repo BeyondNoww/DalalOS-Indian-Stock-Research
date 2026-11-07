@@ -1,0 +1,16 @@
+{
+  "name": "dalalos",
+  "owner": {
+    "name": "DalalOS",
+    "email": "hello@dalalos.in"
+  },
+  "plugins": [
+    {
+      "name": "dalalos",
+      "source": "./",
+      "description": "Source-backed Indian NSE/BSE stock research data: financials, mechanically-computed ratios, shareholding, filings, screens, FII/DII flows and macro context.",
+      "category": "finance",
+      "homepage": "https://dalalos.in"
+    }
+  ]
+}
