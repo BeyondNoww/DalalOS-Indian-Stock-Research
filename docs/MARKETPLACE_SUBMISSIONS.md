@@ -144,7 +144,9 @@ Antigravity declares a remote server with `serverUrl`:
 
 ## Cursor
 
-Cursor's route has changed more than once and reviews are manual and slow. Check the current publish page first; the options seen are the marketplace publish form and cursor.directory. Submit once and do not resubmit while waiting (duplicates). Use the one-liner and description from the Claude section above, with `.cursor/mcp.json` setup from the README.
+Cursor's marketplace takes a public GitHub repository holding a plugin (single-plugin layout: `.cursor-plugin/plugin.json` at the repository root, a committed logo, and `mcp.json` for the MCP server). Apply at https://cursor.com/marketplace/publish while signed in; the form asks for organization name, handle, a kebab-case namespace, contact email, a 1:1 SVG or PNG logo URL, description, the GitHub repository and website. Template and checklist: https://github.com/cursor/plugin-template . Reviews are manual and slow; submit once and do not resubmit while waiting. Questions: `marketplace-publishing@cursor.com`.
+
+Suggested answers: organization `DalalOS`, namespace `@dalalos`, contact `hello@dalalos.in`, logo `https://dalalos.in/icon.svg`, website `https://dalalos.in`, repository `https://github.com/BeyondNoww/DalalOS-Indian-Stock-Research`, description from the Claude one-liner above.
 
 ## Community directories
 

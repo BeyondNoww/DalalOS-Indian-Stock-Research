@@ -1,0 +1,15 @@
+{
+  "name": "dalalos",
+  "displayName": "DalalOS: Indian Stock Market Research",
+  "version": "1.0.0",
+  "description": "Source-backed Indian NSE/BSE stock research data in Cursor: financials, mechanically-computed ratios, shareholding, filings, screens, FII/DII flows and macro context. Sign in once with OAuth.",
+  "author": {
+    "name": "DalalOS",
+    "email": "hello@dalalos.in"
+  },
+  "homepage": "https://dalalos.in",
+  "repository": "https://github.com/BeyondNoww/DalalOS-Indian-Stock-Research",
+  "license": "MIT",
+  "keywords": ["india", "nse", "bse", "stock-market", "financial-data", "mcp", "market-data"],
+  "logo": "assets/logo.svg"
+}
