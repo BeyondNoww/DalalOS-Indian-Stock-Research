@@ -187,6 +187,12 @@ Each prompt names the DalalOS tools your assistant should reach for. You do not 
 
 Prompt pattern for when recency matters: *"Name the DalalOS tools used, show the source, the cached date and any stale or coverage warning. Do not substitute web search for a missing DalalOS value."* More: [`examples/PROMPTS.md`](examples/PROMPTS.md).
 
+Step-by-step how-tos, each with the tools to use, example prompts, how to check the answer and the limits:
+
+- [FII and DII data in Claude and ChatGPT](docs/guides/fii-dii-flows-in-claude-and-chatgpt.md)
+- [Screen Indian stocks in plain English](docs/guides/screen-indian-stocks-in-plain-english.md)
+- [Ask AI about earnings calls and filings, with the page behind each answer](docs/guides/earnings-calls-and-filings-with-ai.md)
+
 ## What is different
 
 - **Official sources only.** Data comes from NSE and BSE publications, SEBI-mandated BSE-XBRL filings, NSDL, MOSPI, PPAC and FBIL. DalalOS does not use third-party data-vendor feeds.
@@ -195,6 +201,24 @@ Prompt pattern for when recency matters: *"Name the DalalOS tools used, show the
 - **Source and freshness on every response.** Each result carries its provenance, a `cached_at` time and a `stale` flag. When freshness is the question there is a dedicated `get_data_freshness` tool.
 - **Honest gaps.** Missing, not-applicable and stale data are surfaced as such, not replaced with an invented value. A valid zero and missing data are different things.
 - **No verdicts.** Raw-as-reported figures or mechanically-computed ratios only: no buy/sell calls, target prices or "top picks".
+
+## DalalOS and NSE's own MCP server
+
+NSE runs its own MCP server for NSE cash-market data: prices, indices and corporate actions. It needs no sign-in, and NSE says its intraday data is delayed by 1 to 3 minutes. If you want NSE intraday prices, use it. DalalOS stock quotes are end-of-day.
+
+DalalOS is for company research on NSE and BSE companies. It adds what NSE's listed tools do not cover:
+
+| | DalalOS | NSE's MCP |
+| --- | --- | --- |
+| Financial statements and ratios | Yes | Not in its listed tools |
+| Shareholding and promoter pledge | Yes | Not in its listed tools |
+| Company filings and announcements, with source pages | Yes | Corporate actions only |
+| BSE-only companies | Where data exists | NSE cash market |
+| Screens, peer comparison, FII/DII and F&O context | Yes | Market movers and index tools |
+| Intraday prices | No, end-of-day | Yes, delayed 1 to 3 minutes |
+| Sign-in | Yes, free tier | Not needed, per NSE |
+
+You can connect both. DalalOS is not affiliated with NSE. These points come from NSE's MCP page and the DalalOS tool list as checked on 3 November 2026, so check NSE's page for its current tools: https://www.nseindia.com/nse-mcp. Full comparison: https://dalalos.in/compare/nse-mcp-vs-dalalos-mcp.
 
 ## Tools
 
@@ -257,6 +281,7 @@ This is the public project, integration and discovery surface for DalalOS. It ho
 | [`glama.json`](glama.json), [`smithery.yaml`](smithery.yaml) | Directory metadata for Glama and Smithery |
 | [`docs/CONNECT.md`](docs/CONNECT.md) | Connection and authentication notes |
 | [`docs/DATA_SOURCES.md`](docs/DATA_SOURCES.md) | Provenance and freshness contract |
+| [`docs/guides/`](docs/guides) | How-tos: FII/DII flows, plain-English screens, earnings calls and filings |
 | [`docs/DIRECTORY_LISTING.md`](docs/DIRECTORY_LISTING.md) | Canonical copy for MCP directories and catalogs |
 | [`docs/OPENAI_PLUGIN_SUBMISSION.md`](docs/OPENAI_PLUGIN_SUBMISSION.md) | OpenAI Plugin listing and review notes |
 | [`examples/PROMPTS.md`](examples/PROMPTS.md) | Example research prompts and out-of-scope requests |
